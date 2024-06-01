@@ -1,9 +1,10 @@
-import './App.css'
 
 function App() {
   return (
     <>
-      <h1>Lunar Foods</h1>
+      <main className="dark:bg-black bg-white">
+        <h1 className="bg-themecolor/35">Lunar Foods</h1>
+      </main>
     </>
   )
 }
