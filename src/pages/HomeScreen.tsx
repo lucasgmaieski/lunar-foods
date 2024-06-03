@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Header } from "../components/Header";
 import { Product } from "../components/Product";
 import { products as productList } from "../data/products";
 import { ProductType } from "../types/ProductType";
@@ -32,7 +31,6 @@ export function HomeScreen() {
 
     return (
         <>
-            <Header />
             <main className="flex-1 max-w-4xl w-full mx-auto">
                 <Search searchTerm={searchTerm} onSearchChange={handleSearchChange}/>
                 <PriceFilter priceRange={priceRange} onPriceChange={handlePriceChange} />

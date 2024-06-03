@@ -1,6 +1,12 @@
+import { Link } from "react-router-dom";
 import { ProductType } from "../types/ProductType";
+import { FaCartShopping } from "react-icons/fa6";
+import { useMainContext } from "../hooks/useContext";
 
 export function Product({data}: {data: ProductType}) {
+    const { addToCart } = useMainContext();
+
+
     return (
         <div className="flex-shrink-0 mx-auto  md:m-6 relative overflow-hidden dark:bg-secondarydark bg-secondarylight rounded-lg max-w-xs shadow-lg hover:shadow-2xl transition-shadow group ">
             <svg className="absolute bottom-0 left-0 mb-8 scale-150 opacity-10" viewBox="0 0 375 283" fill="none" >
@@ -9,12 +15,16 @@ export function Product({data}: {data: ProductType}) {
             </svg>
             <div className="relative flex items-center justify-center">
                 <div className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" style={{background: 'radial-gradient(black, transparent 60%)', transform: 'rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)', opacity: 0.2}}></div>
-                <img className="relative w-full group-hover:scale-105 transition-transform" src={data.image} alt=""/>
+                <Link to={`/produtos/${data.id}`}><img className="relative w-full group-hover:scale-105 transition-transform" src={data.image} alt=""/></Link>
             </div>
             <div className="relative flex justify-between text-white px-6 pb-6 mt-6">
                 <span className="block opacity-75 -mb-1">{data.name}</span>
                 <div className="flex justify-between">
                 {/* <span className="block font-semibold text-xl">{data.description}</span> */}
+                    <button type="button" onClick={() => addToCart(data)}>
+                        Adicionar 
+                        <FaCartShopping className="w-[28px] h-[28px] cursor-pointer dark:text-white text-black "/>
+                    </button>
                     <span className="bg-white rounded-full text-jonquil text-xs font-bold px-3 py-2 leading-none flex items-center">R${data.price}</span>
                 </div>
             </div>
