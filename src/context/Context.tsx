@@ -44,7 +44,7 @@ export default function ContextProvider ({children}: React.PropsWithChildren) {
         const existingItem = prevItems.find(item => item.id === product.id);
         if (existingItem) {
           return prevItems.map(item =>
-            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+            item.id === product.id ? { ...item, quantity: (item.quantity || 0) + 1 } : item
           );
         }
         return [...prevItems, { ...product, quantity: 1 }];
@@ -58,7 +58,7 @@ export default function ContextProvider ({children}: React.PropsWithChildren) {
     const updateQuantity = (id: number, quantity: number) => {
       setCartItems(prevItems =>
         prevItems.map(item =>
-          item.id === id ? { ...item, quantity: item.quantity + quantity } : item
+          item.id === id ? { ...item, quantity: (item.quantity || 0) + quantity } : item
         )
       );
     };
@@ -67,7 +67,7 @@ export default function ContextProvider ({children}: React.PropsWithChildren) {
       setCartItems([]);
     };
   
-    const cartItemCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+    const cartItemCount = cartItems.reduce((count, item) => count + (item.quantity || 0), 0);
 
     return (
         <Context.Provider value={{theme, setTheme, cartItems, addToCart, removeFromCart, updateQuantity, cartItemCount, clearCart}}>
