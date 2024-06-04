@@ -16,17 +16,29 @@ export default {
         themecolor: 'rgb(var(--theme-color), <alpha-value>)',
         primarylight: '#FFF1D0',
         secondarylight: '#DBC797',
-        tertiarydark: '#B89E63',
-        blueSapphire: '#086788',
-        blueGreen: '#07A0C3',
+        tertiarylight: '#B89E63',
         jonquil: '#F0C808',
-        papayaWhip: '#FFF1D0',
-        papayaWhipdark: '#705E31',
-        maximumRed: '#DD1C1A',
       },
       animation: {
         'spin-slow': 'spin 1s ease-in-out infinite',
-      }
+        'wiggle': 'wiggle .5s ease-in-out 2',
+        'vibrate': 'vibrate 0.3s linear 2',
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(4deg)' },
+        },
+        vibrate: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '25%': { transform: 'translateX(-2px)' },
+          '50%': { transform: 'translateX(2px)' },
+          '75%': { transform: 'translateX(-2px)' },
+        },
+      },
+      screens: {
+        "xsm": "540px",
+      },
     },
     
   },

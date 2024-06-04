@@ -31,11 +31,11 @@ export function HomeScreen() {
 
     return (
         <>
-            <main className="flex-1 max-w-4xl w-full mx-auto">
+            <main className="flex-1 max-w-3xl w-full mx-auto">
                 <Search searchTerm={searchTerm} onSearchChange={handleSearchChange}/>
                 <PriceFilter priceRange={priceRange} onPriceChange={handlePriceChange} />
 
-                <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 gap-y-6 sm:gap-y-4 p-2 sm:p-0">
+                <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-6  p-2 sm:p-0">
                     {filteredProducts.map((product) => (
                         <Product data={product}/>
                     ))}
