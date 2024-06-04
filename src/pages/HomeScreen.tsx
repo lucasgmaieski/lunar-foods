@@ -11,7 +11,7 @@ export function HomeScreen() {
     const [priceRange, setPriceRange] = useState<string>('');
 
     useEffect(() => {
-        setProducts(productList)
+        setProducts(productList as ProductType[])
     }, []);
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {

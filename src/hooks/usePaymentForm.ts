@@ -36,6 +36,7 @@ export function usePaymentForm () {
 
     const { handleSubmit, register, formState: { errors}, reset, setValue } = useForm<FormProps>({mode: 'all', reValidateMode: 'onBlur', resolver: zodResolver(paymentFormSchema)});
     const handleForm = async (formData : FormProps) => {
+        console.log(formData);
         // Simular transação de pagamento
         setLoading(true);
         const isSuccess = Math.random() > 0.5;
